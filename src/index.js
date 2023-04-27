@@ -87,8 +87,6 @@ function unfocusButton() {
 
 async function loadImages(query) {
   try {
-    console.log(query);
-
     const { totalHits, hits } = (
       await axios(settingsForRequest(query, numberPage))
     ).data;
@@ -127,7 +125,6 @@ async function appendImages() {
     const data = (await axios(settingsForRequest(input.value, ++numberPage)))
       .data;
     if (showedImages === totalImages) {
-      console.log('COMPLETE');
       loader.classList.add('loader-hidden');
 
       scrollObserver.unobserve(loader);
